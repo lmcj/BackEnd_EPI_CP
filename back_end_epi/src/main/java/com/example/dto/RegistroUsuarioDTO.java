@@ -57,7 +57,6 @@ public class RegistroUsuarioDTO {
     @Pattern(regexp = "femenino|masculino|no binario")
     private String genero;
 
-    @NotNull
     private String estado;
 
     @NotNull
