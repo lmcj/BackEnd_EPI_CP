@@ -60,6 +60,9 @@ public class RegistroUsuarioDTO {
     @NotNull
     private String estado;
 
+    @NotNull
+    private String programa;
+
     public @NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String getPrimer_nombre() {
         return primer_nombre;
     }
@@ -91,7 +94,6 @@ public class RegistroUsuarioDTO {
     public void setSegundo_apellido(@NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String segundo_apellido) {
         this.segundo_apellido = segundo_apellido;
     }
-// Getters y Setters
 
     public @NotNull @Pattern(regexp = "femenino|masculino|no binario") String getGenero() {
         return genero;
@@ -172,4 +174,8 @@ public class RegistroUsuarioDTO {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public @NotNull String getPrograma() { return programa; }
+
+    public void setPrograma(@NotNull String programa) { this.programa = programa; }
 }

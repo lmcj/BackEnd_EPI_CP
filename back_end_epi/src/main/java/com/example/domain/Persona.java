@@ -39,10 +39,17 @@ public class Persona {
     @Column(length = 255)
     private String genero;
 
+    @Column(length = 255)
+    private String programa;
+
     @Temporal(TemporalType.DATE)
     private Date fecha_nacimiento;
 
     // Getters and setters
+
+    public String getPrograma() { return programa; }
+
+    public void setPrograma(String programa) { this.programa = programa; }
 
     public Long getId_persona() {
         return id_persona;
