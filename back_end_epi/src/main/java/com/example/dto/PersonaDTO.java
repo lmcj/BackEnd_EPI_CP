@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class PersonaDTO {
     private Long id_persona;
-    private String tipo_documento;
+    private String tipo_documentos;
     private String numero_documento;
     private String nombres;
     private String apellidos;
@@ -22,12 +22,12 @@ public class PersonaDTO {
         this.id_persona = id_persona;
     }
 
-    public String getTipo_documento() {
-        return tipo_documento;
+    public String getTipo_documentos() {
+        return tipo_documentos;
     }
 
-    public void setTipo_documento(String tipo_documento) {
-        this.tipo_documento = tipo_documento;
+    public void setTipo_documentos(String tipo_documentos) {
+        this.tipo_documentos = tipo_documentos;
     }
 
     public String getNumero_documento() {

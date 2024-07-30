@@ -1,19 +1,94 @@
 package com.example.dto;
 
+
+import jakarta.validation.constraints.*;
+
 public class RegistroUsuarioDTO {
+    @NotNull
     private String tipo_documento;
+
+    @NotNull
+    @Pattern(regexp = "\\d{10,12}")
     private String numero_documento;
-    private String nombres;
-    private String apellidos;
+
+    @NotNull
+    @Size(max = 50)
+    @Pattern(regexp = "[a-zA-Z]+")
+    private String primer_nombre;
+
+    @NotNull
+    @Size(max = 50)
+    @Pattern(regexp = "[a-zA-Z]+")
+    private String segundo_nombre;
+
+    @NotNull
+    @Size(max = 50)
+    @Pattern(regexp = "[a-zA-Z]+")
+    private String primer_apellido;
+
+    @NotNull
+    @Size(max = 50)
+    @Pattern(regexp = "[a-zA-Z]+")
+    private String segundo_apellido;
+
+    @NotNull
+    @Email(regexp = ".+@(gmail|hotmail|unillanos|yahoo)\\..+")
     private String email;
+
+    @Size(max = 20)
+    @Pattern(regexp = "\\d*")
     private String telefono;
+
+    @Size(max = 250)
     private String direccion;
+
+    @NotNull
+    @Pattern(regexp = "^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[012])-((19|20)\\d\\d)$")
     private String fecha_nacimiento;
+
+    @NotNull
+    @Size(min = 8, max = 20)
     private String contrasenia;
-    private Long id_rol; // Asegúrate de que esto es correcto
+
+    @NotNull
+    private Long id_rol;
+
+    @NotNull
+    @Pattern(regexp = "femenino|masculino|no binario")
     private String estado;
 
-    // Getters y Setters
+    public @NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String getPrimer_nombre() {
+        return primer_nombre;
+    }
+
+    public void setPrimer_nombre(@NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String primer_nombre) {
+        this.primer_nombre = primer_nombre;
+    }
+
+    public @NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String getSegundo_nombre() {
+        return segundo_nombre;
+    }
+
+    public void setSegundo_nombre(@NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String segundo_nombre) {
+        this.segundo_nombre = segundo_nombre;
+    }
+
+    public @NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String getPrimer_apellido() {
+        return primer_apellido;
+    }
+
+    public void setPrimer_apellido(@NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String primer_apellido) {
+        this.primer_apellido = primer_apellido;
+    }
+
+    public @NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String getSegundo_apellido() {
+        return segundo_apellido;
+    }
+
+    public void setSegundo_apellido(@NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String segundo_apellido) {
+        this.segundo_apellido = segundo_apellido;
+    }
+// Getters y Setters
 
     public String getTipo_documento() {
         return tipo_documento;
@@ -29,22 +104,6 @@ public class RegistroUsuarioDTO {
 
     public void setNumero_documento(String numero_documento) {
         this.numero_documento = numero_documento;
-    }
-
-    public String getNombres() {
-        return nombres;
-    }
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
     }
 
     public String getEmail() {

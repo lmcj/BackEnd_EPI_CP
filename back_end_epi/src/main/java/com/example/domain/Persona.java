@@ -16,10 +16,16 @@ public class Persona {
     private String numero_documento;
 
     @Column(nullable = false, length = 100)
-    private String nombres;
+    private String primer_nombre;
 
     @Column(nullable = false, length = 100)
-    private String apellidos;
+    private String segundo_nombre;
+
+    @Column(nullable = false, length = 100)
+    private String primer_apellido;
+
+    @Column(nullable = false, length = 100)
+    private String segundo_apellido;
 
     @Column(nullable = false, length = 100)
     private String email;
@@ -59,20 +65,28 @@ public class Persona {
         this.numero_documento = numero_documento;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getPrimer_nombre() {
+        return primer_nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setPrimer_nombre(String nombres) {
+        this.primer_nombre = nombres;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getSegundo_nombre() { return segundo_nombre; }
+
+    public void setSegundo_nombre(String segundo_nombre) { this.segundo_nombre = segundo_nombre; }
+
+    public String getSegundo_apellido() { return segundo_apellido; }
+
+    public void setSegundo_apellido(String segundo_apellido) { this.segundo_apellido = segundo_apellido; }
+
+    public String getPrimer_apellido() {
+        return primer_apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setPrimer_apellido(String apellidos) {
+        this.primer_apellido = apellidos;
     }
 
     public String getEmail() {
@@ -106,5 +120,5 @@ public class Persona {
     public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
-    
+
 }
