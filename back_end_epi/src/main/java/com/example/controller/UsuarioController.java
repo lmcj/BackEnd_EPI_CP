@@ -50,8 +50,10 @@ public class UsuarioController {
         return usuarioService.getAllUsuarios();
     }
 
-    @PostMapping("/{id}/actualizar-estado")
-    public UsuarioDTO actualizarEstadoUsuario(@PathVariable Long id, @RequestParam String nuevoEstado) {
-        return usuarioService.actualizarEstadoUsuario(id, nuevoEstado);
+    @PutMapping("/{id}/activar")
+    public UsuarioDTO activarUsuario(@PathVariable Long id) {
+        UsuarioDTO usuarioDTO = usuarioService.getUsuarioById(id);
+        usuarioDTO.setEstado("Activo");
+        return usuarioService.saveUsuario(usuarioDTO);
     }
 }

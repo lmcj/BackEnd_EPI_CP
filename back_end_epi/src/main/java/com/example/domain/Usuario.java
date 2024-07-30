@@ -21,7 +21,7 @@ public class Usuario {
     @JoinColumn(name = "id_credencial")
     private Credencial credencial;
 
-    @Column(name = "estado")
+    @Column(nullable = false)
     private String estado = "En Revision";
 
     @Column

@@ -64,6 +64,9 @@ public class RegistroUsuarioService {
         usuario.setRol(rolRepository.findById(registroUsuarioDTO.getId_rol()).orElseThrow(() -> new RuntimeException("Rol no encontrado")));
         usuario.setCredencial(credencial);
 
+        // Establecer el estado en "Revisión"
+        usuario.setEstado("Revisión");
+
         // Establecer la fecha de registro actual
         usuario.setFecha_registro(new Timestamp(new Date().getTime()));
 
