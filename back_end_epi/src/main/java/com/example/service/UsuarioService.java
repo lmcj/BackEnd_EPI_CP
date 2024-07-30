@@ -60,4 +60,12 @@ public class UsuarioService {
                 .map(UsuarioMapper.INSTANCE::usuarioToUsuarioDTO)
                 .collect(Collectors.toList());
     }
+
+    public UsuarioDTO actualizarEstadoUsuario(Long idUsuario, String nuevoEstado) {
+        Usuario usuario = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        usuario.setEstado(nuevoEstado);
+        usuarioRepository.save(usuario);
+        return UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
+    }
 }

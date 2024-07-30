@@ -49,4 +49,9 @@ public class UsuarioController {
     public List<UsuarioDTO> getAllUsuarios() {
         return usuarioService.getAllUsuarios();
     }
+
+    @PostMapping("/{id}/actualizar-estado")
+    public UsuarioDTO actualizarEstadoUsuario(@PathVariable Long id, @RequestParam String nuevoEstado) {
+        return usuarioService.actualizarEstadoUsuario(id, nuevoEstado);
+    }
 }

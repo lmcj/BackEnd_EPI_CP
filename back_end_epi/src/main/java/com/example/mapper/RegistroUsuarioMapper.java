@@ -28,5 +28,6 @@ public interface RegistroUsuarioMapper {
     @Mapping(target = "persona", ignore = true) // Ignorar persona, se asignará manualmente
     @Mapping(target = "rol", ignore = true) // Ignorar rol, se asignará manualmente
     @Mapping(target = "credencial", ignore = true) // Ignorar credencial, se asignará manualmente
+    @Mapping(target = "estado", ignore = true) // Ignorar el estado para mantener el valor por defecto
     Usuario registroUsuarioDTOToUsuario(RegistroUsuarioDTO registroUsuarioDTO);
 }

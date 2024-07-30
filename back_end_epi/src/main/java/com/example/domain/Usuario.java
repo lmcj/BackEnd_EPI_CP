@@ -21,8 +21,8 @@ public class Usuario {
     @JoinColumn(name = "id_credencial")
     private Credencial credencial;
 
-    @Column(length = 50)
-    private String estado;
+    @Column(name = "estado")
+    private String estado = "En Revision";
 
     @Column
     private Timestamp fecha_registro;

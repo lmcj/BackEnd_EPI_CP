@@ -6,8 +6,10 @@ public class PersonaDTO {
     private Long id_persona;
     private String tipo_documentos;
     private String numero_documento;
-    private String nombres;
-    private String apellidos;
+    private String primer_nombre;
+    private String segundo_nombre;
+    private String primer_apellido;
+    private String segundo_apellido;
     private String email;
     private String telefono;
     private String direccion;
@@ -40,20 +42,36 @@ public class PersonaDTO {
         this.numero_documento = numero_documento;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getPrimer_nombre() {
+        return primer_nombre;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
+    public void setPrimer_nombre(String primer_nombre) {
+        this.primer_nombre = primer_nombre;
     }
 
-    public String getApellidos() {
-        return apellidos;
+    public String getPrimer_apellido() {
+        return primer_apellido;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setPrimer_apellido(String primer_apellido) {
+        this.primer_apellido = primer_apellido;
+    }
+
+    public String getSegundo_nombre() {
+        return segundo_nombre;
+    }
+
+    public void setSegundo_nombre(String segundo_nombre) {
+        this.segundo_nombre = segundo_nombre;
+    }
+
+    public String getSegundo_apellido() {
+        return segundo_apellido;
+    }
+
+    public void setSegundo_apellido(String segundo_apellido) {
+        this.segundo_apellido = segundo_apellido;
     }
 
     public String getEmail() {
