@@ -36,6 +36,9 @@ public class Persona {
     @Column(length = 255)
     private String direccion;
 
+    @Column(length = 255)
+    private String genero;
+
     @Temporal(TemporalType.DATE)
     private Date fecha_nacimiento;
 
@@ -121,4 +124,7 @@ public class Persona {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
+    public String getGenero() { return genero; }
+
+    public void setGenero(String genero) {this.genero = genero; }
 }

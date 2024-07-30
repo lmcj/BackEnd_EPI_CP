@@ -55,6 +55,9 @@ public class RegistroUsuarioDTO {
 
     @NotNull
     @Pattern(regexp = "femenino|masculino|no binario")
+    private String genero;
+
+    @NotNull
     private String estado;
 
     public @NotNull @Size(max = 50) @Pattern(regexp = "[a-zA-Z]+") String getPrimer_nombre() {
@@ -89,6 +92,14 @@ public class RegistroUsuarioDTO {
         this.segundo_apellido = segundo_apellido;
     }
 // Getters y Setters
+
+    public @NotNull @Pattern(regexp = "femenino|masculino|no binario") String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(@NotNull @Pattern(regexp = "femenino|masculino|no binario") String genero) {
+        this.genero = genero;
+    }
 
     public String getTipo_documento() {
         return tipo_documento;

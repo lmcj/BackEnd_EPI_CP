@@ -6,12 +6,16 @@ import com.example.mapper.UsuarioMapper;
 import com.example.service.RegistroUsuarioService;
 import com.example.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import jakarta.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuarios")
+@Validated
 public class UsuarioController {
 
     @Autowired
@@ -26,8 +30,8 @@ public class UsuarioController {
     }
 
     @PostMapping("/crear")
-    public UsuarioDTO registrarUsuario(@RequestBody RegistroUsuarioDTO registroUsuarioDTO) {
-        return UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(registroUsuarioService.registrarUsuario(registroUsuarioDTO));
+    public ResponseEntity<UsuarioDTO> registrarUsuario(@Valid @RequestBody RegistroUsuarioDTO registroUsuarioDTO) {
+        return ResponseEntity.ok(UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(registroUsuarioService.registrarUsuario(registroUsuarioDTO)));
     }
 
     @PutMapping("/actualizar/{id}")

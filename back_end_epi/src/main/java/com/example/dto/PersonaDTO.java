@@ -11,6 +11,7 @@ public class PersonaDTO {
     private String email;
     private String telefono;
     private String direccion;
+    private String genero;
     private Date fecha_nacimiento;
 
     // Getters y Setters
@@ -81,6 +82,10 @@ public class PersonaDTO {
     public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
+
+    public String getGenero() { return genero; }
+
+    public void setGenero(String genero) { this.genero = genero; }
 
     public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
