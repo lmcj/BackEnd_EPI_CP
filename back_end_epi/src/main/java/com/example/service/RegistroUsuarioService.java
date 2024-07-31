@@ -43,6 +43,16 @@ public class RegistroUsuarioService {
     public Usuario registrarUsuario(RegistroUsuarioDTO registroUsuarioDTO) {
         logger.info("Iniciando el registro del usuario");
 
+        // Verificar si el correo electrónico ya está registrado
+        if (personaRepository.existsByEmail(registroUsuarioDTO.getEmail())) {
+            throw new IllegalArgumentException("El correo electrónico ya está registrado");
+        }
+
+        // Verificar si el número de documento ya está registrado
+        if (personaRepository.existsByNumeroDocumento(registroUsuarioDTO.getNumero_documento())) { // Asegúrate de usar el nombre correcto aquí
+            throw new IllegalArgumentException("El número de documento ya está registrado");
+        }
+
         // Usar el mapper para convertir DTO a entidades
         Persona persona = RegistroUsuarioMapper.INSTANCE.registroUsuarioDTOToPersona(registroUsuarioDTO);
         Credencial credencial = RegistroUsuarioMapper.INSTANCE.registroUsuarioDTOToCredencial(registroUsuarioDTO);

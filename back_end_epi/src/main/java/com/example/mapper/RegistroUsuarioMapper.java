@@ -14,7 +14,7 @@ public interface RegistroUsuarioMapper {
     RegistroUsuarioMapper INSTANCE = Mappers.getMapper(RegistroUsuarioMapper.class);
 
     @Mapping(source = "tipo_documento", target = "tipo_documento")
-    @Mapping(source = "numero_documento", target = "numero_documento")
+    @Mapping(source = "numero_documento", target = "numeroDocumento")
     @Mapping(source = "fecha_nacimiento", target = "fecha_nacimiento")
     @Mapping(target = "id_persona", ignore = true) // Ignorar id_persona
     Persona registroUsuarioDTOToPersona(RegistroUsuarioDTO registroUsuarioDTO);

@@ -13,7 +13,7 @@ public class Persona {
     private String tipo_documento;
 
     @Column(nullable = false, length = 50)
-    private String numero_documento;
+    private String numeroDocumento;
 
     @Column(nullable = false, length = 100)
     private String primer_nombre;
@@ -46,10 +46,9 @@ public class Persona {
     private Date fecha_nacimiento;
 
     // Getters and setters
-
     public String getPrograma() { return programa; }
 
-    public void setPrograma(String programa) { this.programa = programa; }
+    public void setPrograma(String programa) { this.programa = programa;}
 
     public Long getId_persona() {
         return id_persona;
@@ -67,12 +66,12 @@ public class Persona {
         this.tipo_documento = tipo_documento;
     }
 
-    public String getNumero_documento() {
-        return numero_documento;
+    public String getNumeroDocumento() {
+        return numeroDocumento;
     }
 
-    public void setNumero_documento(String numero_documento) {
-        this.numero_documento = numero_documento;
+    public void setNumeroDocumento(String numero_documento) {
+        this.numeroDocumento = numero_documento;
     }
 
     public String getPrimer_nombre() {

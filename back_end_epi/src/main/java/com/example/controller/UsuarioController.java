@@ -31,7 +31,8 @@ public class UsuarioController {
 
     @PostMapping("/crear")
     public ResponseEntity<UsuarioDTO> registrarUsuario(@Valid @RequestBody RegistroUsuarioDTO registroUsuarioDTO) {
-        return ResponseEntity.ok(UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(registroUsuarioService.registrarUsuario(registroUsuarioDTO)));
+        UsuarioDTO usuarioDTO = UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(registroUsuarioService.registrarUsuario(registroUsuarioDTO));
+        return ResponseEntity.ok(usuarioDTO);
     }
 
     @PutMapping("/actualizar/{id}")
