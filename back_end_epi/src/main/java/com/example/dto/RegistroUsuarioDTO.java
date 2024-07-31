@@ -57,8 +57,6 @@ public class RegistroUsuarioDTO {
     @Pattern(regexp = "femenino|masculino|no binario")
     private String genero;
 
-    private String estado;
-
     @NotNull
     private String programa;
 
@@ -164,14 +162,6 @@ public class RegistroUsuarioDTO {
 
     public void setId_rol(Long id_rol) {
         this.id_rol = id_rol;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
     }
 
     public @NotNull String getPrograma() { return programa; }
