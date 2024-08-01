@@ -46,18 +46,6 @@ public class UsuarioService {
         usuario.setRol(rolRepository.findById(usuarioDTO.getRolId()).orElseThrow(() -> new RuntimeException("Rol no encontrado")));
         usuario.setCredencial(credencialRepository.findById(usuarioDTO.getCredencialId()).orElseThrow(() -> new RuntimeException("Credencial no encontrada")));
 
-        // Verifica el rol y ajusta el estado
-        if (usuario.getRol().getNombre().equalsIgnoreCase("admin")) {
-            long adminCount = usuarioRepository.countByRolNombre("admin");
-            if (adminCount > 0) {
-                usuario.setEstado("Revision");
-            } else {
-                usuario.setEstado("Activo");
-            }
-        } else {
-            usuario.setEstado("Revision");
-        }
-
         usuario = usuarioRepository.save(usuario);
         return UsuarioMapper.INSTANCE.usuarioToUsuarioDTO(usuario);
     }
@@ -68,6 +56,13 @@ public class UsuarioService {
 
     public List<UsuarioDTO> getAllUsuarios() {
         List<Usuario> usuarios = usuarioRepository.findAll();
+        return usuarios.stream()
+                .map(UsuarioMapper.INSTANCE::usuarioToUsuarioDTO)
+                .collect(Collectors.toList());
+    }
+
+    public List<UsuarioDTO> getUsuariosByEstado(String estado) {
+        List<Usuario> usuarios = usuarioRepository.findByEstado(estado);
         return usuarios.stream()
                 .map(UsuarioMapper.INSTANCE::usuarioToUsuarioDTO)
                 .collect(Collectors.toList());

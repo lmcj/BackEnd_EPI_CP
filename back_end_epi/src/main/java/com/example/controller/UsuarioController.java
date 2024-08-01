@@ -57,4 +57,14 @@ public class UsuarioController {
         usuarioDTO.setEstado("Activo");
         return usuarioService.saveUsuario(usuarioDTO);
     }
+
+    @GetMapping("/estado")
+    public List<UsuarioDTO> getUsuarios(@RequestParam(value = "estado", required = false) String estado) {
+        if (estado != null) {
+            return usuarioService.getUsuariosByEstado(estado);
+        } else {
+            return usuarioService.getAllUsuarios();
+        }
+    }
+
 }

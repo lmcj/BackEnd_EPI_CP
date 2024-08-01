@@ -74,8 +74,21 @@ public class RegistroUsuarioService {
         usuario.setRol(rolRepository.findById(registroUsuarioDTO.getId_rol()).orElseThrow(() -> new RuntimeException("Rol no encontrado")));
         usuario.setCredencial(credencial);
 
-        // Establecer el estado en "Revisión"
-        usuario.setEstado("Revisión");
+        // Verifica el rol y ajusta el estado
+        if (usuario.getRol().getNombre().equalsIgnoreCase("admin")) {
+            long adminCount = usuarioRepository.countByRolNombre("admin");
+            System.out.println("Número de admins existentes: " + adminCount);
+            if (adminCount > 0) {
+                usuario.setEstado("Revision");
+                System.out.println("Estableciendo estado a Revisión"); // Depuración
+            } else {
+                usuario.setEstado("Activo");
+                System.out.println("Estableciendo estado a Activo"); // Depuración
+            }
+        } else {
+            usuario.setEstado("Revision");
+            System.out.println("Estableciendo estado a Revisión para rol no admin"); // Depuración
+        }
 
         // Establecer la fecha de registro actual
         usuario.setFecha_registro(new Timestamp(new Date().getTime()));
