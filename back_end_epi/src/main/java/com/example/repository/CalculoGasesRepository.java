@@ -1,9 +1,11 @@
 package com.example.repository;
 
-import com.example.domain.Metodo;
+import com.example.domain.CalculoGases;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
-public interface MetodoRepository extends JpaRepository<Metodo, Long> {
+public interface CalculoGasesRepository extends JpaRepository<CalculoGases, Long> {
 }
