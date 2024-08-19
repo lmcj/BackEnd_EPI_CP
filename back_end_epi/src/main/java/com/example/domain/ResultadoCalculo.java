@@ -10,12 +10,24 @@ public class ResultadoCalculo {
     private Long id_resultado_calculo;
 
     @ManyToOne
-    @JoinColumn(name = "id_calculo_gases", nullable = false)
+    @JoinColumn(nullable = false)
     private CalculoGases calculo_gases;
 
     @ManyToOne
     @JoinColumn(nullable = false)
+    private TipoMetodo tipo_metodo;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
     private TipoCalculo tipo_calculo;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private TipoGases tipo_gases;
+
+    @ManyToOne
+    @JoinColumn(nullable = false)
+    private TipoMedida tipo_medida;
 
     @Column(nullable = false)
     private Double iterador;
@@ -24,10 +36,7 @@ public class ResultadoCalculo {
     private Integer anio;
 
     @Column(nullable = false)
-    private Double valor_aritmetico;
-
-    @Column(nullable = false)
-    private Double valor_exponencial;
+    private Double resultado;
 
     // Getters y Setters
 
@@ -47,12 +56,36 @@ public class ResultadoCalculo {
         this.calculo_gases = calculo_gases;
     }
 
+    public TipoMetodo getTipo_metodo() {
+        return tipo_metodo;
+    }
+
+    public void setTipo_metodo(TipoMetodo tipo_metodo) {
+        this.tipo_metodo = tipo_metodo;
+    }
+
     public TipoCalculo getTipo_calculo() {
         return tipo_calculo;
     }
 
     public void setTipo_calculo(TipoCalculo tipo_calculo) {
         this.tipo_calculo = tipo_calculo;
+    }
+
+    public TipoGases getTipo_gases() {
+        return tipo_gases;
+    }
+
+    public void setTipo_gases(TipoGases tipo_gases) {
+        this.tipo_gases = tipo_gases;
+    }
+
+    public TipoMedida getTipo_medida() {
+        return tipo_medida;
+    }
+
+    public void setTipo_medida(TipoMedida tipo_medida) {
+        this.tipo_medida = tipo_medida;
     }
 
     public Double getIterador() {
@@ -71,20 +104,11 @@ public class ResultadoCalculo {
         this.anio = anio;
     }
 
-    public Double getValor_aritmetico() {
-        return valor_aritmetico;
+    public Double getResultado() {
+        return resultado;
     }
 
-    public void setValor_aritmetico(Double valor_aritmetico) {
-        this.valor_aritmetico = valor_aritmetico;
-    }
-
-    public Double getValor_exponencial() {
-        return valor_exponencial;
-    }
-
-    public void setValor_exponencial(Double valor_exponencial) {
-        this.valor_exponencial = valor_exponencial;
+    public void setResultado(Double resultado) {
+        this.resultado = resultado;
     }
 }
-

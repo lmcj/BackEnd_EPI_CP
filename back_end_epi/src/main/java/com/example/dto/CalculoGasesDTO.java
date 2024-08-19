@@ -13,7 +13,6 @@ public class CalculoGasesDTO {
     private Double produccion_percapital_anio;
     private Integer anio_apertura;
     private Integer anio_cierre;
-    private String tipo_metodo;
     private Set<ResultadoCalculoDTO> resultados_calculo;
 
     // Getters and Setters
@@ -88,14 +87,6 @@ public class CalculoGasesDTO {
 
     public void setAnio_cierre(Integer anio_cierre) {
         this.anio_cierre = anio_cierre;
-    }
-
-    public String getTipo_metodo() {
-        return tipo_metodo;
-    }
-
-    public void setTipo_metodo(String tipo_metodo) {
-        this.tipo_metodo = tipo_metodo;
     }
 
     public Set<ResultadoCalculoDTO> getResultados_calculo() {

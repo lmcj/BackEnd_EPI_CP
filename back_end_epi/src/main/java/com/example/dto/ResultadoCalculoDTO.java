@@ -4,11 +4,13 @@ public class ResultadoCalculoDTO {
 
     private Long id_resultadocalculo;
     private Long calculoGasesId;
+    private Long tipoMetodoId;
     private Long tipoCalculoId;
+    private Long tipoGasesId;
+    private Long tipoMedidaId;
     private Double iterador;
     private Integer anio;
-    private Double valor_aritmetico;
-    private Double valor_exponencial;
+    private Double resultado;
 
     // Getters y Setters
 
@@ -28,12 +30,36 @@ public class ResultadoCalculoDTO {
         this.calculoGasesId = calculoGasesId;
     }
 
+    public Long getTipoMetodoId() {
+        return tipoMetodoId;
+    }
+
+    public void setTipoMetodoId(Long tipoMetodoId) {
+        this.tipoMetodoId = tipoMetodoId;
+    }
+
     public Long getTipoCalculoId() {
         return tipoCalculoId;
     }
 
     public void setTipoCalculoId(Long tipoCalculoId) {
         this.tipoCalculoId = tipoCalculoId;
+    }
+
+    public Long getTipoGasesId() {
+        return tipoGasesId;
+    }
+
+    public void setTipoGasesId(Long tipoGasesId) {
+        this.tipoGasesId = tipoGasesId;
+    }
+
+    public Long getTipoMedidaId() {
+        return tipoMedidaId;
+    }
+
+    public void setTipoMedidaId(Long tipoMedidaId) {
+        this.tipoMedidaId = tipoMedidaId;
     }
 
     public Double getIterador() {
@@ -52,19 +78,11 @@ public class ResultadoCalculoDTO {
         this.anio = anio;
     }
 
-    public Double getValor_aritmetico() {
-        return valor_aritmetico;
+    public Double getResultado() {
+        return resultado;
     }
 
-    public void setValor_aritmetico(Double valor_aritmetico) {
-        this.valor_aritmetico = valor_aritmetico;
-    }
-
-    public Double getValor_exponencial() {
-        return valor_exponencial;
-    }
-
-    public void setValor_exponencial(Double valor_exponencial) {
-        this.valor_exponencial = valor_exponencial;
+    public void setResultado(Double resultado) {
+        this.resultado = resultado;
     }
 }

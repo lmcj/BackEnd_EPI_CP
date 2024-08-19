@@ -3,9 +3,7 @@ package com.example.service;
 import com.example.domain.ResultadoCalculo;
 import com.example.dto.ResultadoCalculoDTO;
 import com.example.mapper.ResultadoCalculoMapper;
-import com.example.repository.CalculoGasesRepository;
-import com.example.repository.TipoCalculoRepository;
-import com.example.repository.ResultadoCalculoRepository;
+import com.example.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +22,15 @@ public class ResultadoCalculoService {
     @Autowired
     private TipoCalculoRepository tipoCalculoRepository;
 
+    @Autowired
+    private TipoGasesRepository tipoGasesRepository;
+
+    @Autowired
+    private TipoMedidaRepository tipoMedidaRepository;
+
+    @Autowired
+    private TipoMetodoRepository tipoMetodoRepository;
+
     public ResultadoCalculoDTO getResultadoCalculoById(Long id) {
         ResultadoCalculo resultadoCalculo = resultadoCalculoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Resultado de Cálculo no encontrado"));
@@ -32,8 +39,12 @@ public class ResultadoCalculoService {
 
     public ResultadoCalculoDTO saveResultadoCalculo(ResultadoCalculoDTO resultadoCalculoDTO) {
         // Verifica que los IDs no sean nulos
-        if (resultadoCalculoDTO.getCalculoGasesId() == null || resultadoCalculoDTO.getTipoCalculoId() == null) {
-            throw new IllegalArgumentException("Cálculo de Gases ID y Tipo de Cálculo ID no deben ser nulos");
+        if (resultadoCalculoDTO.getCalculoGasesId() == null ||
+                resultadoCalculoDTO.getTipoCalculoId() == null ||
+                resultadoCalculoDTO.getTipoGasesId() == null ||
+                resultadoCalculoDTO.getTipoMedidaId() == null ||
+                resultadoCalculoDTO.getTipoMetodoId() == null) {
+            throw new IllegalArgumentException("IDs de las entidades relacionadas no deben ser nulos");
         }
 
         ResultadoCalculo resultadoCalculo = ResultadoCalculoMapper.INSTANCE.resultadoCalculoDTOToResultadoCalculo(resultadoCalculoDTO);
@@ -43,6 +54,12 @@ public class ResultadoCalculoService {
                 .orElseThrow(() -> new RuntimeException("Cálculo de Gases no encontrado")));
         resultadoCalculo.setTipo_calculo(tipoCalculoRepository.findById(resultadoCalculoDTO.getTipoCalculoId())
                 .orElseThrow(() -> new RuntimeException("Tipo de Cálculo no encontrado")));
+        resultadoCalculo.setTipo_gases(tipoGasesRepository.findById(resultadoCalculoDTO.getTipoGasesId())
+                .orElseThrow(() -> new RuntimeException("Tipo de Gases no encontrado")));
+        resultadoCalculo.setTipo_medida(tipoMedidaRepository.findById(resultadoCalculoDTO.getTipoMedidaId())
+                .orElseThrow(() -> new RuntimeException("Tipo de Medida no encontrado")));
+        resultadoCalculo.setTipo_metodo(tipoMetodoRepository.findById(resultadoCalculoDTO.getTipoMetodoId())
+                .orElseThrow(() -> new RuntimeException("Tipo de Método no encontrado")));
 
         resultadoCalculo = resultadoCalculoRepository.save(resultadoCalculo);
         return ResultadoCalculoMapper.INSTANCE.resultadoCalculoToResultadoCalculoDTO(resultadoCalculo);

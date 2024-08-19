@@ -36,9 +36,6 @@ public class CalculoGases {
     @Column(nullable = false)
     private Integer anio_cierre;
 
-    @Column(nullable = false)
-    private String tipo_metodo;
-
     @OneToMany(mappedBy = "calculo_gases")
     private Set<ResultadoCalculo> resultados_calculo;
 
@@ -114,14 +111,6 @@ public class CalculoGases {
 
     public void setAnio_cierre(Integer anio_cierre) {
         this.anio_cierre = anio_cierre;
-    }
-
-    public String getTipo_metodo() {
-        return tipo_metodo;
-    }
-
-    public void setTipo_metodo(String tipo_metodo) {
-        this.tipo_metodo = tipo_metodo;
     }
 
     public Set<ResultadoCalculo> getResultados_calculo() {

@@ -2,20 +2,20 @@ package com.example.dto;
 
 import java.util.List;
 
-public class TipoCalculoDTO {
+public class TipoMetodoDTO {
 
-    private Long id_tipo_calculo;
+    private Long id_tipo_metodo;
     private String tipo;
     private List<Long> resultadosCalculoIds; // Lista de IDs de ResultadosCalculo asociados
 
     // Getters y Setters
 
-    public Long getId_tipo_calculo() {
-        return id_tipo_calculo;
+    public Long getId_tipo_metodo() {
+        return id_tipo_metodo;
     }
 
-    public void setId_tipo_calculo(Long id_tipo_calculo) {
-        this.id_tipo_calculo = id_tipo_calculo;
+    public void setId_tipo_metodo(Long id_tipo_metodo) {
+        this.id_tipo_metodo = id_tipo_metodo;
     }
 
     public String getTipo() {
