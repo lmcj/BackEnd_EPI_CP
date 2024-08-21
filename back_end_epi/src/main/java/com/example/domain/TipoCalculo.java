@@ -2,6 +2,7 @@ package com.example.domain;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,7 +15,7 @@ public class TipoCalculo {
     private String tipo;
 
     @OneToMany(mappedBy = "tipo_calculo")
-    private List<ResultadoCalculo> resultadosCalculo;
+    private List<ResultadoCalculo> resultadosCalculo = new ArrayList<>();
 
     // Getters and setters
 
