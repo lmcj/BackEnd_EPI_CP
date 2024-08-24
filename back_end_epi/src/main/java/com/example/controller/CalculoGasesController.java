@@ -27,6 +27,12 @@ public class CalculoGasesController {
         return ResponseEntity.ok(savedCalculoGasesDTO);
     }
 
+    @PostMapping("/crear_resultados")
+    public ResponseEntity<CalculoGasesDTO> createCalculoGasesResultados(@RequestBody CalculoGasesDTO calculoGasesDTO) {
+        CalculoGasesDTO savedCalculoGasesDTO = calculoGasesService.saveCalculoGasesWithResultados(calculoGasesDTO);
+        return ResponseEntity.ok(savedCalculoGasesDTO);
+    }
+
     @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<Void> deleteCalculoGases(@PathVariable Long id) {
         calculoGasesService.deleteCalculoGases(id);
