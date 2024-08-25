@@ -23,13 +23,13 @@ public class CalculoGasesController {
 
     @PostMapping("/crear")
     public ResponseEntity<CalculoGasesDTO> createCalculoGases(@RequestBody CalculoGasesDTO calculoGasesDTO) {
-        CalculoGasesDTO savedCalculoGasesDTO = calculoGasesService.saveCalculoGases(calculoGasesDTO);
+        CalculoGasesDTO savedCalculoGasesDTO = calculoGasesService.saveCalculoGasesWithGrupos(calculoGasesDTO);
         return ResponseEntity.ok(savedCalculoGasesDTO);
     }
 
     @PostMapping("/crear_resultados")
     public ResponseEntity<CalculoGasesDTO> createCalculoGasesResultados(@RequestBody CalculoGasesDTO calculoGasesDTO) {
-        CalculoGasesDTO savedCalculoGasesDTO = calculoGasesService.saveCalculoGasesWithResultados(calculoGasesDTO);
+        CalculoGasesDTO savedCalculoGasesDTO = calculoGasesService.saveCalculoGasesWithGrupos(calculoGasesDTO);
         return ResponseEntity.ok(savedCalculoGasesDTO);
     }
 

@@ -1,6 +1,6 @@
 package com.example.dto;
 
-import java.util.Set;
+import java.util.List;
 
 public class CalculoGasesDTO {
 
@@ -13,9 +13,9 @@ public class CalculoGasesDTO {
     private Double produccion_percapital_anio;
     private Integer anio_apertura;
     private Integer anio_cierre;
-    private Set<ResultadoCalculoDTO> resultados_calculo;
+    private List<GrupoResultadosCalculoDTO> grupos_resultados;
 
-    // Getters and Setters
+    // Getters y Setters
 
     public Long getId_calculo_gases() {
         return id_calculo_gases;
@@ -89,12 +89,11 @@ public class CalculoGasesDTO {
         this.anio_cierre = anio_cierre;
     }
 
-    public Set<ResultadoCalculoDTO> getResultados_calculo() {
-        return resultados_calculo;
+    public List<GrupoResultadosCalculoDTO> getGrupos_resultados() {
+        return grupos_resultados;
     }
 
-    public void setResultados_calculo(Set<ResultadoCalculoDTO> resultados_calculo) {
-        this.resultados_calculo = resultados_calculo;
+    public void setGrupos_resultados(List<GrupoResultadosCalculoDTO> grupos_resultados) {
+        this.grupos_resultados = grupos_resultados;
     }
 }
-
