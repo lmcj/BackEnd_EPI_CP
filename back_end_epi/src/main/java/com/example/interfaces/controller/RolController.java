@@ -3,6 +3,7 @@ package com.example.interfaces.controller;
 import com.example.application.dto.RolDTO;
 import com.example.application.service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public class RolController {
     public RolDTO getRolById(@PathVariable Long id) {
         return rolService.getRolById(id);
     }
-
+    @PreAuthorize("hasRole('admin')")
     @PostMapping("/crear")
     public RolDTO createRol(@RequestBody RolDTO rolDTO) {
         return rolService.saveRol(rolDTO);
