@@ -1,33 +1,22 @@
 version: '3'
 
 services:
-  back_end:
-    build: back_end_epi
-    mem_limit: 512m
-    ports:
-      - "8080:8080"
+  keycloak:
+    image: quay.io/keycloak/keycloak:latest
+    container_name: keycloak
     environment:
-      DB_URL: jdbc:mysql://back_end_camilo:3306/db_backend_epi?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
-      DB_USER_NAME: root
-      DB_PASSWORD: root
-    restart: always
-    depends_on:
-      back_end_camilo:
-        condition: service_healthy
-
-  back_end_camilo:
-    image: mysql:8.3.0
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    command:
+      - start-dev
+      - --import-realm
+    volumes:
+      - ./realm-export.json:/opt/keycloak/data/import/realm-export.json
     ports:
-      - "3307:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
-      MYSQL_DATABASE: db_backend_epi
-    restart: always
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 10s
-      retries: 10
+      - "8081:8080"
+    networks:
+      - keycloak-network
 
-
-      
+networks:
+  keycloak-network:
+    driver: bridge
